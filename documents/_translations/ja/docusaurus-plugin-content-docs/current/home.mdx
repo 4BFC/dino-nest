@@ -1,0 +1,38 @@
+---
+title: ホーム
+description: 個人の知識とプロジェクトの記録をまとめる Docusaurus スターター、Docnest を紹介します。
+slug: /
+sidebar_position: 1
+hide_title: true
+hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
+created_at: 2026-11-09
+updated_at: 2026-11-09
+---
+
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import HomeHeading from '@site/src/app/components/HomeHeading';
+import {SITE_ROUTES} from '@site/src/app/routes.js';
+
+<div className="library-home">
+
+<HomeHeading />
+
+学んだことと、作ったものの背景を残す、自分だけのドキュメントスペースです。
+
+Docnest は、個人の知識とプロジェクトの記録をまとめる Docusaurus スターターです。
+Markdown と MDX で文書を書き、必要に応じて React でページを拡張できます。
+
+折りたためるナビゲーション、ライト・ダークテーマ、文書検索、共通スタイルを備えています。
+このホームページを自己紹介に書き換えて、文書を少しずつ追加してください。
+
+<div className="library-home__actions">
+  <Link className="button button--outline button--secondary" to={useBaseUrl(SITE_ROUTES.license)}>MIT ライセンス <span aria-hidden="true">→</span></Link>
+  <a className="button button--outline button--secondary" href="https://github.com/4BFC/docnest/generate">テンプレートを使う <span aria-hidden="true">↗</span></a>
+</div>
+
+<p className="library-home__guide">制作：<a href="https://github.com/4BFC">4BFC</a>。ソースと開発ガイドは <a href="https://github.com/4BFC/docnest">Docnest リポジトリ</a>をご覧ください。</p>
+
+</div>

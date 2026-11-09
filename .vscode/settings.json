@@ -1,0 +1,38 @@
+{
+  "editor.formatOnSave": false,
+  "prettier.requireConfig": true,
+  "prettier.ignorePath": ".prettierignore",
+  "eslint.validate": ["javascript", "javascriptreact"],
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "files.trimTrailingWhitespace": false
+  },
+  "[mdx]": {
+    "editor.formatOnSave": false,
+    "files.trimTrailingWhitespace": false
+  }
+}

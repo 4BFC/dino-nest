@@ -1,0 +1,38 @@
+---
+title: Home
+description: Meet Docnest, a Docusaurus starter for personal knowledge and project documentation.
+slug: /
+sidebar_position: 1
+hide_title: true
+hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
+created_at: 2026-11-09
+updated_at: 2026-11-09
+---
+
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import HomeHeading from '@site/src/app/components/HomeHeading';
+import {SITE_ROUTES} from '@site/src/app/routes.js';
+
+<div className="library-home">
+
+<HomeHeading />
+
+A home for what you learn and the context behind what you build.
+
+Docnest is a Docusaurus starter for personal knowledge and project documentation.
+Write in Markdown and MDX, and extend your site with React when you need a custom page.
+
+Collapsible navigation, light and dark themes, document search, and shared styles are included.
+Make this home page your own introduction, then add your documents as you go.
+
+<div className="library-home__actions">
+  <Link className="button button--outline button--secondary" to={useBaseUrl(SITE_ROUTES.license)}>MIT License <span aria-hidden="true">→</span></Link>
+  <a className="button button--outline button--secondary" href="https://github.com/4BFC/docnest/generate">Use this template <span aria-hidden="true">↗</span></a>
+</div>
+
+<p className="library-home__guide">Created by <a href="https://github.com/4BFC">4BFC</a>. Find the source and development guide in the <a href="https://github.com/4BFC/docnest">Docnest repository</a>.</p>
+
+</div>

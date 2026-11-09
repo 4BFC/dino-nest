@@ -1,0 +1,7 @@
+node_modules/
+build/
+.docusaurus*/
+pnpm-lock.yaml
+**/*.md
+**/*.mdx
+public/
