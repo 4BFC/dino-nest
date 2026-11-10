@@ -13,9 +13,5 @@ export default {
       extends: ['stylelint-config-standard-scss'],
       rules: {'max-nesting-depth': 3},
     },
-    {
-      files: ['src/app/styles/tokens/colors.css'],
-      rules: {'color-no-hex': null, 'function-disallowed-list': null},
-    },
   ],
 };

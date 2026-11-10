@@ -1,0 +1,13 @@
+// Site-specific component styles. Docusaurus renames the classes in this file
+// (for example, .note becomes .note_x1Ab), so they apply only where the file is imported.
+// Global styles belong in src/globals.scss.
+// Usage in MDX or a React component:
+//   import styles from '@site/src/styles/custom.module.scss';
+//   <div className={styles.note}>A note for this site.</div>
+
+.note {
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--ifm-background-surface-color);
+}

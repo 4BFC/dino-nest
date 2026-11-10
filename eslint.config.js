@@ -5,8 +5,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 
 const sourceFiles = ['*.js', 'src/**/*.{js,jsx}'];
-const nodeFiles = ['src/config/**/*.js'];
-const pureFiles = ['src/app/routes.js', 'src/app/logic/**/*.js'];
+const browserFiles = ['src/pages/**/*.{js,jsx}', 'src/theme/**/*.{js,jsx}'];
 
 export default defineConfig([
   globalIgnores([
@@ -35,18 +34,18 @@ export default defineConfig([
     },
   },
   {
-    files: ['src/app/**/*.{js,jsx}', 'src/pages/**/*.{js,jsx}', 'src/theme/**/*.{js,jsx}'],
-    ignores: ['src/**/*.test.js', ...nodeFiles, ...pureFiles],
+    files: browserFiles,
+    ignores: ['src/**/*.test.js'],
     languageOptions: {globals: globals.browser},
   },
   {
-    files: ['*.js', ...nodeFiles, 'src/**/*.test.js'],
+    files: ['*.js', 'src/**/*.test.js'],
     // Node ESM globals exclude CommonJS-only require, exports and __dirname.
     languageOptions: {globals: globals.nodeBuiltin},
   },
   {
     files: ['src/**/*.{js,jsx}'],
-    ignores: [...nodeFiles, 'src/**/*.test.js'],
+    ignores: ['src/**/*.test.js'],
     rules: {
       'no-restricted-imports': [
         'error',
@@ -55,7 +54,7 @@ export default defineConfig([
             {
               regex: '(^|/)(config|plugins)(/|$)',
               message:
-                'Node build configuration and plugins must not enter browser or shared modules.',
+                'Node build configuration and plugins, such as @dino-ovum/preset/config, must not enter browser modules.',
             },
           ],
         },
@@ -63,13 +62,13 @@ export default defineConfig([
     },
   },
   {
-    files: ['src/app/DevTools.jsx'],
+    files: ['src/theme/Root.jsx'],
     // Docusaurus replaces this development-only guard during bundling.
     languageOptions: {globals: {process: 'readonly'}},
   },
   {
-    files: ['src/app/**/*.{js,jsx}', 'src/pages/**/*.{js,jsx}', 'src/theme/**/*.{js,jsx}'],
-    ignores: ['src/**/*.test.js', ...nodeFiles, ...pureFiles],
+    files: browserFiles,
+    ignores: ['src/**/*.test.js'],
     languageOptions: {parserOptions: {ecmaFeatures: {jsx: true}}},
     plugins: {'react-hooks': reactHooks},
     // Start with hook correctness; React Compiler rules are a separate adoption.
