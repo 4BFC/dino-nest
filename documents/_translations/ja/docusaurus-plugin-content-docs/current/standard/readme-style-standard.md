@@ -5,7 +5,7 @@ description: Docnest の文書の役割、言語バッジ、仕様表、執筆�
 slug: /standard/readme-style-standard
 sidebar_position: 1
 created_at: 2026-11-09
-updated_at: 2026-11-09
+updated_at: 2026-11-10
 ---
 
 Docnest のユーザー向けガイドと開発者向けガイドの執筆基準です。共通の基準は `documents/standard/` にまとめ、サイトにも公開します。
@@ -17,8 +17,7 @@ Docnest のユーザー向けガイドと開発者向けガイドの執筆基準
 | 文書 | 読者と目的 | 含める内容 |
 | --- | --- | --- |
 | README | Docnest を利用する人 | 紹介、簡潔な仕様、インストール、文書の作成、基本的な使い方 |
-| CONTRIBUTING | コードを変更、保守する人 | 開発環境、ソースの責務、検査、コミット、公開手順 |
-| `src/README.md` | 構造を理解したい開発者 | ディレクトリの責務と依存関係の方向 |
+| CONTRIBUTING | コードを変更、保守する人 | 開発環境、サイトの構成、検査、コミット、公開手順 |
 | `documents/standard/` | 文書を保守する人 | 共通の執筆基準 |
 
 README にルーティングの内部実装、プラグインの回避策、lint コマンド、開発ツールの説明を詰め込みません。
