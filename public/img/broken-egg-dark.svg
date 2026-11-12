@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Broken egg">
-  <title>Upright cracked dinosaur egg spilling onto the ground</title>
-  <rect width="512" height="512" rx="114" fill="#f4f3eb"/>
-  <path d="M244 74C183 74 126 178 126 262C126 309 141 345 173 367L191 345L181 323L207 310L216 284L244 276L259 249L287 255L303 233L329 246L350 231C334 149 284 74 244 74Z" fill="#1b1b1d"/>
-  <path d="M350 250L336 269C347 301 328 340 292 356L298 374C340 358 365 312 350 250Z" fill="#1b1b1d"/>
-  <path d="M223 340C243 322 282 325 296 344C308 360 289 362 307 371C327 381 357 368 380 379C395 386 419 382 425 396C432 414 393 429 358 426C329 424 311 438 279 434C249 430 234 438 208 431C183 424 156 436 137 423C123 413 92 420 87 404C80 385 118 382 140 381C166 380 187 369 193 352C198 346 207 345 223 340Z" fill="#1b1b1d" stroke="#f4f3eb" stroke-width="12" stroke-linejoin="round"/>
-  <path d="M203 391C224 366 272 363 296 386" fill="none" stroke="#f4f3eb" stroke-width="10" stroke-linecap="round"/>
-  <path d="M274 119L266 151L285 174L276 210L299 235" fill="none" stroke="#f4f3eb" stroke-width="8" stroke-linejoin="round"/>
-</svg>

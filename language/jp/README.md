@@ -48,9 +48,8 @@
 | 画面 | ![React 19.2.8](https://img.shields.io/badge/React-19.2.8-149ECA?style=flat-square&logo=react&logoColor=white) | 操作に応じた画面を表示 |
 | 実行環境 | ![Node.js 24 LTS](https://img.shields.io/badge/Node.js-24_LTS-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white) | サイトの起動とビルドに必要 |
 | パッケージ管理 | ![pnpm 10.5.2](https://img.shields.io/badge/pnpm-10.5.2-F69220?style=flat-square&logo=pnpm&logoColor=white) | パッケージのインストールとコマンドの実行 |
-| スタイル | ![Sass 1.106.1](https://img.shields.io/badge/Sass-1.106.1-CC6699?style=flat-square&logo=sass&logoColor=white) | 色とレイアウトの設定 |
-| プリセット | ![Dino Ovum Preset](https://img.shields.io/badge/Dino_Ovum-preset-2e8555?style=flat-square) | 文書・検索・PWA と共通プラグインの設定 |
-| テーマ | ![Dino Ovum Theme](https://img.shields.io/badge/Dino_Ovum-theme-2e8555?style=flat-square) | 共通 UI・コンポーネント・スタイル・フォント・UI 翻訳 |
+| プリセット | ![Dino Ovum Preset 0.1.0](https://img.shields.io/badge/Dino_Ovum_Preset-0.1.0-2e8555?style=flat-square) | `@dino-ovum/preset`：文書・検索・PWA と共通プラグインの設定 |
+| テーマ | ![Dino Ovum Theme 0.1.0](https://img.shields.io/badge/Dino_Ovum_Theme-0.1.0-2e8555?style=flat-square) | `@dino-ovum/theme`、preset と一緒にインストール：共通 UI・コンポーネント・スタイル・フォント・UI 翻訳 |
 
 ## インストール
 
@@ -92,21 +91,24 @@ slug: /notes/first-note
 | --- | --- |
 | 自己紹介 | `documents/home.mdx` |
 | 学習記録やプロジェクトの文書 | `documents/` 内のファイル |
-| サイト名、説明、公開 URL | `src/config/site.js` |
+| サイト名、説明、公開 URL | `docusaurus.config.js` |
 | ロゴ | `public/img/icon-light.svg`, `public/img/icon-dark.svg` |
+| サイトのスタイル | `src/css/custom.css` |
 
-サイトを共有する前に、`src/config/site.js` のサンプル URL を変更し、公開する文書を確認してください。
+サイトを共有する前に、`docusaurus.config.js` のサンプル URL を変更し、公開する文書を確認してください。
 ホスティングについては[公開ガイド](./CONTRIBUTING.md#公開)をご覧ください。
-元のテンプレートの更新は、自分のリポジトリには自動で反映されません。
+共通のデザインと機能は Dino Ovum パッケージが提供します。`@dino-ovum/preset` を更新すると改善を受け取れます。
+元のテンプレート自体のファイルの更新は、自分のリポジトリには自動で反映されません。
 
 ## 主な機能
 
 - フォルダー別のナビゲーション、文書一覧、検索。
 - 折りたたみ式サイドバー、モバイルナビゲーション、ライトテーマとダークテーマ。
 - 本番ビルドでのアプリのインストールとオフラインキャッシュ。
+- Dino Ovum パッケージが提供する共通のデザインと機能。パッケージのバージョン一つで更新。
 
 初期状態ではホーム、MIT License、README 作成基準のページが含まれています。必要な文書を少しずつ追加してください。
-[Docusaurus](https://docusaurus.io/) と [React](https://react.dev/) で作られています。
+[Docusaurus](https://docusaurus.io/)、[React](https://react.dev/)、[Dino Ovum](https://github.com/4BFC/dino-ovum) で作られています。
 
 英語の文書は `documents/`、韓国語と日本語の翻訳は `documents/_translations/ko/`、`documents/_translations/ja/` で管理します。
 上部の言語選択で、表示中の文書の翻訳版に移動できます。

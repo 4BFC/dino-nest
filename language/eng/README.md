@@ -48,9 +48,8 @@ Versions come from [package.json](../../package.json) and [pnpm-lock.yaml](../..
 | Interface | ![React 19.2.8](https://img.shields.io/badge/React-19.2.8-149ECA?style=flat-square&logo=react&logoColor=white) | Displays interactive pages |
 | Runtime | ![Node.js 24 LTS](https://img.shields.io/badge/Node.js-24_LTS-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white) | Required to run and build the site |
 | Package manager | ![pnpm 10.5.2](https://img.shields.io/badge/pnpm-10.5.2-F69220?style=flat-square&logo=pnpm&logoColor=white) | Installs dependencies and runs commands |
-| Styles | ![Sass 1.106.1](https://img.shields.io/badge/Sass-1.106.1-CC6699?style=flat-square&logo=sass&logoColor=white) | Controls colors and layout |
-| Preset | ![Dino Ovum Preset](https://img.shields.io/badge/Dino_Ovum-preset-2e8555?style=flat-square) | Document, search, PWA, and shared plugin configuration |
-| Theme | ![Dino Ovum Theme](https://img.shields.io/badge/Dino_Ovum-theme-2e8555?style=flat-square) | Shared UI, components, styles, fonts, and UI translations |
+| Preset | ![Dino Ovum Preset 0.1.0](https://img.shields.io/badge/Dino_Ovum_Preset-0.1.0-2e8555?style=flat-square) | `@dino-ovum/preset`: document, search, PWA, and shared plugin configuration |
+| Theme | ![Dino Ovum Theme 0.1.0](https://img.shields.io/badge/Dino_Ovum_Theme-0.1.0-2e8555?style=flat-square) | `@dino-ovum/theme`, installed with the preset: shared UI, components, styles, fonts, and UI translations |
 
 ## Install
 
@@ -93,12 +92,14 @@ Document search is available in the built site; use the navigation while running
 | --- | --- |
 | Your introduction | `documents/home.mdx` |
 | Notes and project records | Files in `documents/` |
-| Site name, description, and public URL | `src/config/site.js` |
+| Site name, description, and public URL | `docusaurus.config.js` |
 | Logo | `public/img/icon-light.svg`, `public/img/icon-dark.svg` |
+| Site styles | `src/css/custom.css` |
 
-Before sharing your site, replace the example URL in `src/config/site.js` and review the documents you intend to publish.
+Before sharing your site, replace the example URL in `docusaurus.config.js` and review the documents you intend to publish.
 The [publishing guide](./CONTRIBUTING.md#publishing) covers hosting.
-Upstream template changes are not automatically applied to your repository.
+Shared design and features come from the Dino Ovum packages; update `@dino-ovum/preset` to receive improvements.
+Later changes to this template's own files are not applied to your repository automatically.
 
 ## Features
 
@@ -106,9 +107,10 @@ Upstream template changes are not automatically applied to your repository.
 - A collapsible sidebar, mobile navigation, and light and dark themes.
 - English, Korean, and Japanese documents with a language selector that keeps your current page.
 - Installable app support and offline caching in production builds.
+- Shared design and features from Dino Ovum packages, updated by changing one package version.
 
 The starter includes a home page, an MIT License page, and a README writing guide. Add your own content as you go.
-Built with [Docusaurus](https://docusaurus.io/) and [React](https://react.dev/).
+Built with [Docusaurus](https://docusaurus.io/), [React](https://react.dev/), and [Dino Ovum](https://github.com/4BFC/dino-ovum).
 
 ## Maintainer
 

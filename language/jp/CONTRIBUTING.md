@@ -16,7 +16,7 @@
 ## 目次
 
 - [開発環境](#開発環境)
-- [ソースの役割](#ソースの役割)
+- [サイトの構成](#サイトの構成)
 - [文書とページ](#文書とページ)
 - [オプション機能](#オプション機能)
 - [チェック](#チェック)
@@ -47,26 +47,55 @@ pnpm start --port 3100 --no-open
 
 依存パッケージは目的を明確にして変更し、lockfile も更新してください。
 
-## ソースの役割
+## サイトの構成
 
-ソースの責務は [src/README](../../src/README.md) に従います。
+共通のレイアウト、ナビゲーション、スタイル、フォント、既定の UI 翻訳、ビルドプラグインは [Dino Ovum](https://github.com/4BFC/dino-ovum) パッケージが提供します。
+このリポジトリには、ユーザーがカスタマイズするファイルだけを置きます。
 
 | 場所 | 役割 |
 | --- | --- |
-| `src/theme`, `src/pages` | Docusaurus との接続とページのエントリーポイント |
-| `src/app` | 共通の React レイアウト、ナビゲーション、Provider、動作 |
-| `src/app/routes.js` | 共通の URL 値と比較。実際のルーティングは Docusaurus が担当 |
-| `src/config` | Node の設定とビルドプラグイン |
-| `src/app/styles` | グローバル設定、トークン、コンポーネントの SCSS Modules |
-| `documents` | 公開するサイトのコンテンツ |
+| `docusaurus.config.js` | サイト名、URL、ロゴ、言語、Dino Ovum のオプション |
+| `documents` | 公開するサイトのコンテンツと翻訳 |
+| `public` | ロゴ、アイコン、その他の静的ファイル |
+| `src/css/custom.css` | 共通テーマの後に適用するサイトのスタイル |
+| `src/theme` | 共通コンポーネントのラッパーや置き換え。`Root.jsx` は Agentation を読み込みます |
 
-共通のレイアウトとナビゲーションを再利用します。`src/app` の下で、グローバル設定は `styles/globals.css`、
-トークンは `styles/tokens`、コンポーネントのスタイルは `styles/components`、MDX ホームのスタイルは `styles/pages` に分けます。
-既存のブレークポイントを使ってください。VS Code の設定はリポジトリの Prettier と ESLint 設定を使用します。
+```text
+docusaurus.config.js
+  → createDinoConfig(サイト設定, Dino Ovum のオプション)
+      → @dino-ovum/preset: 文書、サイドバー、検索、PWA、ナビゲーション、最近の更新
+          → @dino-ovum/theme: レイアウト、ナビゲーション、スタイル、フォント、既定の UI 翻訳
+  → src/theme のファイルが共通テーマより優先
+```
+
+`createDinoConfig` の第 1 引数は Docusaurus のサイト設定です。オブジェクトは共通の既定値と統合され、
+`navbar.items` などの配列は既定値を置き換えます。第 2 引数で `documents`、`customCss`、`search`、`pwa`、`updates` を選択します。
+各オプションは [Dino Ovum 設定ガイド](https://github.com/4BFC/dino-ovum/blob/main/docs/configuration.md)（韓国語）をご覧ください。
+
+共通コンポーネントを拡張するには、`src/theme` の同じパスにファイルを作成し、元のコンポーネントをラップします。
+
+```jsx
+// src/theme/DinoOvum/HomeHeading.jsx
+import OriginalHomeHeading from '@theme-original/DinoOvum/HomeHeading';
+
+export default function HomeHeading() {
+  return (
+    <>
+      <OriginalHomeHeading />
+      <p>このサイトの案内文</p>
+    </>
+  );
+}
+```
+
+ラッパーはその後のパッケージの改善を受け取りますが、完全に置き換えたファイルは受け取りません。MDX とページは `@theme/DinoOvum/` から
+`HomeHeading`、`DocumentTable`、`LibraryLayout`、`Updates`、`UpdatesPage` を読み込みます。
+VS Code の設定はリポジトリの Prettier と ESLint 設定を使用します。
 
 ## 文書とページ
 
-コンテンツのルートは `documents` で、[document-instances.js](../../src/config/document-instances.js) に登録されています。
+コンテンツのルートは Dino Ovum の既定値である `documents` です。別のディレクトリを使うには、`createDinoConfig` の第 2 引数に
+`documents.path` を指定します。翻訳ディレクトリもその下に移動します。
 初期ページは `/`、`/license`、`/standard/readme-style-standard` です。Markdown または MDX に、次のようなメタデータを記述します。
 
 ```md
@@ -85,17 +114,17 @@ updated_at: 2026-11-09
 文書間のリンクには拡張子を含む相対パスを使います。`_category_.json` の `position` と `label` でフォルダーの順序と名前を設定し、
 フォルダーの `index.mdx` を文書一覧の入り口にできます。日付は Git 履歴ではなく frontmatter から取得します。
 
-React ページのエントリーポイントは `src/pages`、実装は `src/app/components` に置きます。
-例えば `src/pages/about.jsx` は `/about` を作成します。URL 定数を追加するだけではページは作成されません。
+React ページは `src/pages` にファイルを追加します。例えば `src/pages/about.jsx` は `/about` を作成します。
+文書と同じレイアウトを使うには、`@theme/Layout` と `@theme/DinoOvum/LibraryLayout` でラップします。
 個人文書、認証情報、ビルド結果、別リポジトリの Git 履歴はテンプレートに含めないでください。
 
 英語の原文は `documents/` に置きます。Docusaurus のロケールは `en`、`ko`、`ja` です。
 韓国語と日本語の文書は `documents/_translations/<locale>/docusaurus-plugin-content-docs/current/` に置き、英語の原文とファイル名、slug、明示的な見出し ID をそろえます。
-`_translations` は英語の文書ツリーから除外されます。各言語フォルダの `code.json` に React のメッセージ、
-`docusaurus-theme-classic/navbar.json` にナビゲーションの翻訳を記載します。
+`_translations` は英語の文書ツリーから除外されます。各言語フォルダの `docusaurus-theme-classic/navbar.json` にナビゲーションの翻訳を記載します。
+韓国語と日本語の UI メッセージは `@dino-ovum/theme` が提供します。変更したいメッセージは、その言語の `code.json` に同じキーで追加すると優先されます。
 言語選択は Docusaurus のロケール URL を使い、現在の文書、クエリ、フラグメントを保持します。
 リポジトリのガイド用フォルダ `language/eng`、`language/ko`、`language/jp` とサイトのロケールを区別してください。
-上部とホームのロゴは `src/config/site.js` のロゴパスを共有し、ホームのバージョンは `package.json` から読み取ります。
+上部とホームのロゴは `docusaurus.config.js` のロゴパスを共有し、ホームのバージョンは `package.json` から読み取ります。
 
 開発サーバーは一度に一つの言語を提供します。
 
@@ -114,11 +143,12 @@ pnpm serve --host 127.0.0.1 --port 4173 --no-open
 
 ## オプション機能
 
-Recent Updates を有効にするには、`src/pages/_updates.jsx` を `src/pages/updates.jsx` に変更し、
-`src/config/site.js` の `navbar.items` に `{type: 'custom-recentUpdates', position: 'right'}` を追加します。
-既存の画面は共通のレイアウト、フィルター、日付別一覧を再利用します。
+Recent Updates を有効にするには、`docusaurus.config.js` で `createDinoConfig` の第 2 引数に `updates: true` を指定します。
+`/updates` ページと上部のショートカットが、共通のレイアウト、フィルター、日付別一覧とともに追加されます。
+`navbar.items` を自分で指定した場合は、`{type: 'custom-recentUpdates', position: 'right'}` も含めてください。
 
-Agentation は開発環境でのみ `src/app/DevTools.jsx` から読み込まれます。ローカルサーバーを接続するには、次を実行します。
+Agentation は、開発中に AI エージェントと一緒に画面を確認できるようテンプレートに含まれています。
+`src/theme/Root.jsx` から開発サーバーでのみ読み込まれ、Dino Ovum パッケージには含まれません。ローカルサーバーを接続するには、次を実行します。
 
 ```bash
 pnpm agentation
@@ -156,7 +186,8 @@ git status --short
 
 [README style standard](../../documents/standard/readme-style-standard.md) に従います。
 README は製品、簡潔な仕様、インストール、使い方を説明するユーザーマニュアルです。
-CONTRIBUTING には開発、チェック、コミット、公開の手順を記載し、ソース構造は [src/README](../../src/README.md) で管理します。
+CONTRIBUTING には開発、サイトの構成、チェック、コミット、公開の手順を記載します。
+Dino Ovum パッケージの内部構造は [Dino Ovum リポジトリ](https://github.com/4BFC/dino-ovum) で管理します。
 
 英語、韓国語、日本語のガイドは、コマンドやバージョンバッジも含めて同じ内容に保ちます。
 ルートの英語ガイドと `language/eng/` は、相対リンクを調整した同じ本文で管理します。
@@ -168,11 +199,11 @@ README と CONTRIBUTING はルートと `language/` で管理します。共通�
 
 ## 互換性
 
-現在の ESM 構成では、Docusaurus 3.10.1 に [generated-module-compat.js](../../src/config/plugins/generated-module-compat.js) が必要です。
-生成された JavaScript 内の混在するモジュールの解釈だけを調整し、サーバーレンダリング用の一時チャンクを `.cjs` で出力します。
-背景については[公式の議論](https://github.com/facebook/docusaurus/discussions/11326)をご覧ください。
-アップグレード後、プラグインなしで開発、ビルド、生成 HTML の本文が正常に動作することを確認してから、削除を検討します。
-独自プラグインは `src/config/plugins` で管理し、この対応のために依存パッケージへのパッチや別のローカルパッケージを追加しないでください。
+`@dino-ovum/preset` 0.1.0 は Docusaurus 3.10.1、React 19、Node.js `>=24.22.1 <25` に対応しています。
+Docusaurus のビルド互換プラグインは preset に含まれているため、このリポジトリでは個別に管理しません。
+`@docusaurus/core` は、そのバージョンに対応する preset のバージョンと一緒に更新します。
+`package.json` の `browserslist` は残してください。ないと、Babel が古いブラウザー向けに変換する際、Mermaid の任意 import が原因でビルドが失敗することがあります。
+インストールしたパッケージにパッチを当てないでください。共通の問題は [Dino Ovum Issues](https://github.com/4BFC/dino-ovum/issues) に報告します。
 
 ## 貢献の手順
 
@@ -182,18 +213,20 @@ README と CONTRIBUTING はルートと `language/` で管理します。共通�
 コミットメッセージに `Co-Authored-By` を追加しません。push と公開も別の操作として扱います。
 
 `.env` ファイル、ローカルの Claude/Codex 設定、AI 指示ファイルは手元の環境だけに保存します。`.gitignore` でこれらを除外します。
-共有する開発ガイドは、この文書と `src/README.md` に記載します。
+共有する開発ガイドは、この文書に記載します。
 
 ## 公開
 
-公開前に `src/config/site.js` の URL を実際の公開 URL に変更します。静的ホスティングではビルドコマンドを `pnpm build`、出力先を `build` に設定します。
-既定の `baseUrl` は `/` です。サブパスに公開する場合は、`baseUrl`、manifest の `start_url`、`scope`、アイコンのパス、
-`pwaHead` のリンクをそろえ、そのパスでビルド結果を確認してください。
+公開前に `docusaurus.config.js` の URL を実際の公開 URL に変更します。静的ホスティングではビルドコマンドを `pnpm build`、出力先を `build` に設定します。
+既定の `baseUrl` は `/` です。サブパスに公開する場合は `baseUrl` を変更します。PWA の manifest、アイコンのパス、`pwaHead` のリンクはこれに従います。
+そのパスでビルド結果を確認してください。
 
-必要に応じて `public/img`、`public/favicon.ico`、`public/apple-touch-icon.png`、`public/manifest.json` のロゴやアプリ情報を変更します。
-ホスティングの認証情報や個人アカウント設定はコミットしないでください。テンプレートから作成したリポジトリには、元の変更は自動で反映されません。
+必要に応じて `public/img`、`public/favicon.ico`、`public/apple-touch-icon.png` と `docusaurus.config.js` の `pwa` オプションで、ロゴやアプリ情報を変更します。
+ホスティングの認証情報や個人アカウント設定はコミットしないでください。
+共通のデザインと機能の改善は、`@dino-ovum/preset` と lockfile を更新し、再ビルド・再公開すると反映されます。
+README、CONTRIBUTING、設定ファイルなど、テンプレート自体のファイルの変更は自動で反映されません。
 
 ## ライセンス
 
 [MIT ライセンス](../../LICENSE)の著作権表示と許諾文、およびサードパーティーのライセンス表示を保持してください。
-同梱の Pretendard フォントのライセンスは [public/fonts/pretendard/LICENSE](../../public/fonts/pretendard/LICENSE) にあります。
+Pretendard フォントと[そのライセンス](https://github.com/4BFC/dino-ovum/blob/main/packages/theme/src/assets/fonts/pretendard/LICENSE)は `@dino-ovum/theme` に含まれています。

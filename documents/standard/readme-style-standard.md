@@ -5,7 +5,7 @@ description: Document roles, language badges, specifications, and writing standa
 slug: /standard/readme-style-standard
 sidebar_position: 1
 created_at: 2026-11-09
-updated_at: 2026-11-09
+updated_at: 2026-11-10
 ---
 
 This guide defines how Docnest's user and contributor documentation is written. Shared writing standards live in `documents/standard/` and are published on the site.
@@ -17,8 +17,7 @@ and the language badges and specification tables in the [Shelter README](https:/
 | Document | Audience and purpose | Contents |
 | --- | --- | --- |
 | README | People using Docnest | Introduction, concise specifications, installation, writing documents, and everyday use |
-| CONTRIBUTING | People changing or maintaining the code | Development setup, source responsibilities, checks, commits, and publishing |
-| `src/README.md` | Developers exploring the structure | Directory responsibilities and dependency direction |
+| CONTRIBUTING | People changing or maintaining the code | Development setup, site structure, checks, commits, and publishing |
 | `documents/standard/` | Documentation maintainers | Shared writing standards |
 
 Keep routing internals, plugin workarounds, lint commands, and development tools out of README.

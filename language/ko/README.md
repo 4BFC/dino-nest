@@ -48,9 +48,8 @@
 | 화면 | ![React 19.2.8](https://img.shields.io/badge/React-19.2.8-149ECA?style=flat-square&logo=react&logoColor=white) | 사용자와 상호작용하는 화면 표시 |
 | 실행 환경 | ![Node.js 24 LTS](https://img.shields.io/badge/Node.js-24_LTS-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white) | 사이트 실행과 빌드에 필요 |
 | 패키지 관리 | ![pnpm 10.5.2](https://img.shields.io/badge/pnpm-10.5.2-F69220?style=flat-square&logo=pnpm&logoColor=white) | 패키지 설치와 명령 실행 |
-| 스타일 | ![Sass 1.106.1](https://img.shields.io/badge/Sass-1.106.1-CC6699?style=flat-square&logo=sass&logoColor=white) | 색상과 화면 배치 |
-| 프리셋 | ![Dino Ovum Preset](https://img.shields.io/badge/Dino_Ovum-preset-2e8555?style=flat-square) | 문서·검색·PWA와 공통 플러그인 구성 |
-| 테마 | ![Dino Ovum Theme](https://img.shields.io/badge/Dino_Ovum-theme-2e8555?style=flat-square) | 공통 UI·컴포넌트·스타일·폰트·UI 번역 |
+| 프리셋 | ![Dino Ovum Preset 0.1.0](https://img.shields.io/badge/Dino_Ovum_Preset-0.1.0-2e8555?style=flat-square) | `@dino-ovum/preset`: 문서·검색·PWA와 공통 플러그인 구성 |
+| 테마 | ![Dino Ovum Theme 0.1.0](https://img.shields.io/badge/Dino_Ovum_Theme-0.1.0-2e8555?style=flat-square) | `@dino-ovum/theme`, preset과 함께 설치: 공통 UI·컴포넌트·스타일·폰트·UI 번역 |
 
 ## 설치
 
@@ -92,21 +91,24 @@ slug: /notes/first-note
 | --- | --- |
 | 나의 소개 | `documents/home.mdx` |
 | 학습 기록과 프로젝트 문서 | `documents/` 안의 파일 |
-| 사이트 이름, 설명, 공개 주소 | `src/config/site.js` |
+| 사이트 이름, 설명, 공개 주소 | `docusaurus.config.js` |
 | 로고 | `public/img/icon-light.svg`, `public/img/icon-dark.svg` |
+| 사이트 스타일 | `src/css/custom.css` |
 
-사이트를 공유하기 전 `src/config/site.js`의 예제 주소를 바꾸고 공개할 문서를 확인하세요.
+사이트를 공유하기 전 `docusaurus.config.js`의 예제 주소를 바꾸고 공개할 문서를 확인하세요.
 호스팅 방법은 [배포 안내](./CONTRIBUTING.md#배포)에 있습니다.
-원본 템플릿의 후속 변경은 내가 만든 저장소에 자동으로 반영되지 않습니다.
+공통 디자인과 기능은 Dino Ovum 패키지가 제공합니다. `@dino-ovum/preset`을 갱신하면 개선 사항을 받을 수 있습니다.
+원본 템플릿 자체 파일의 후속 변경은 내가 만든 저장소에 자동으로 반영되지 않습니다.
 
 ## 주요 기능
 
 - 폴더별 탐색, 문서 목록과 검색.
 - 접이식 사이드바, 모바일 탐색, 라이트와 다크 테마.
 - 배포 빌드의 앱 설치와 오프라인 캐시.
+- Dino Ovum 패키지가 제공하는 공통 디자인과 기능, 패키지 버전 하나로 업데이트.
 
 처음에는 홈, MIT License, README 작성 기준 페이지가 들어 있습니다. 필요한 문서를 하나씩 추가해 보세요.
-[Docusaurus](https://docusaurus.io/)와 [React](https://react.dev/)로 만들었습니다.
+[Docusaurus](https://docusaurus.io/), [React](https://react.dev/), [Dino Ovum](https://github.com/4BFC/dino-ovum)으로 만들었습니다.
 
 영어 문서는 `documents/`, 한국어와 일본어 번역은 `documents/_translations/ko/`, `documents/_translations/ja/`에서 관리합니다.
 상단 언어 선택은 현재 문서의 번역본으로 이동합니다.
