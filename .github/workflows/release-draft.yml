@@ -1,0 +1,32 @@
+# Collects commits on main into one GitHub Release draft.
+# The draft version follows the commit types: a breaking change raises major, feat raises
+# minor, anything else raises patch. A newer tag name typed into the draft is kept.
+# Before the first release the draft takes the version in package.json.
+name: Release draft
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-draft
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Update the release draft
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const {default: updateReleaseDraft} = await import('${{ github.workspace }}/.github/scripts/draft.js');
+            await updateReleaseDraft({github, context, core, exec});
