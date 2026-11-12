@@ -93,8 +93,10 @@ slug: /notes/first-note
 | 학습 기록과 프로젝트 문서 | `documents/` 안의 파일 |
 | 사이트 이름, 설명, 공개 주소 | `docusaurus.config.js` |
 | 로고 | `public/img/icon-light.svg`, `public/img/icon-dark.svg` |
-| 사이트 스타일 | `src/css/custom.css` |
+| 사이트 전체 스타일 | `src/globals.scss` |
+| 특정 콘텐츠에만 쓰는 스타일 | `src/styles` |
 
+`src`의 각 위치에는 시작점이 되는 파일이 들어 있습니다. 자세한 설명은 [사이트 구조 안내](./CONTRIBUTING.md#src-폴더)에 있습니다.
 사이트를 공유하기 전 `docusaurus.config.js`의 예제 주소를 바꾸고 공개할 문서를 확인하세요.
 호스팅 방법은 [배포 안내](./CONTRIBUTING.md#배포)에 있습니다.
 공통 디자인과 기능은 Dino Ovum 패키지가 제공합니다. `@dino-ovum/preset`을 갱신하면 개선 사항을 받을 수 있습니다.

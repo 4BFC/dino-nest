@@ -57,8 +57,7 @@ Shared layouts, navigation, styles, fonts, default UI translations, and build pl
 | `docusaurus.config.js` | Site name, URL, logo, locales, and Dino Ovum options |
 | `documents` | Publishable site content and translations |
 | `public` | Logo, icons, and other static files |
-| `src/css/custom.css` | Site styles, applied after the shared theme |
-| `src/theme` | Wrappers or replacements for shared components; `Root.jsx` loads Agentation |
+| `src` | Your styles and shared-component wrappers; see [the `src` folder](#the-src-folder) |
 
 ```text
 docusaurus.config.js
@@ -71,6 +70,23 @@ docusaurus.config.js
 The first argument of `createDinoConfig` is the Docusaurus site configuration. Objects merge with the shared defaults;
 arrays such as `navbar.items` replace them. The second argument selects `documents`, `customCss`, `search`, `pwa`, and `updates`.
 See the [Dino Ovum configuration guide](https://github.com/4BFC/dino-ovum/blob/main/docs/configuration.md) (Korean) for each option.
+
+### The `src` folder
+
+Each location in `src` has one role and includes a file to start from. Change the examples to fit your site.
+
+| Location | Role | Included file |
+| --- | --- | --- |
+| `src/globals.scss` | Global styles, applied after the shared theme | Commented examples for colors, fonts, and layout |
+| `src/styles` | Module styles (`*.module.scss`) that apply only where imported | `custom.module.scss`: the `.note` class |
+| `src/theme` | Wrappers or replacements for shared components | `Root.jsx`: loads Agentation |
+
+```text
+src/globals.scss → customCss in docusaurus.config.js → every page
+src/styles/custom.module.scss → only the MDX or src/theme files that import it
+```
+
+Docusaurus fixes the role of `src/theme`: a file there replaces the shared component at the same path.
 
 To extend a shared component, add a file at the same path in `src/theme` and wrap the original:
 

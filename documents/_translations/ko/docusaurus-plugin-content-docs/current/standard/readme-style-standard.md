@@ -5,7 +5,7 @@ description: Docnest의 README와 CONTRIBUTING 역할, 언어 배지, 스펙 표
 slug: /standard/readme-style-standard
 sidebar_position: 1
 created_at: 2026-11-09
-updated_at: 2026-11-10
+updated_at: 2026-11-12
 ---
 
 Docnest의 사용자 안내와 개발 안내를 작성하는 기준입니다. 공통 작성 기준은 `documents/standard/`에 모으고 사이트에서 함께 공개합니다.
@@ -47,7 +47,7 @@ Standard Readme 배지는 작성 스타일의 출처로 연결하며, 프로젝�
 - 경로는 각 파일 기준 상대경로입니다. 실행 명령은 모두 저장소 루트를 기준으로 합니다.
 - 사이트 언어는 `en`, `ko`, `ja`이며, 영어 원문은 `documents/`에 둡니다.
 - 한국어와 일본어 문서는 `documents/_translations/<locale>/docusaurus-plugin-content-docs/current/`에 두고 원문과 파일명, slug를 맞춥니다.
-- UI 번역은 각 언어의 `code.json`에 둡니다. `_translations`는 영어 문서 트리에서 제외됩니다.
+- 한국어와 일본어 UI 메시지는 `@dino-ovum/theme`이 제공하며, 바꿀 메시지만 해당 언어의 `code.json`에 추가합니다. `_translations`는 영어 문서 트리에서 제외됩니다.
 - 언어 선택은 현재 문서의 번역본으로 이동합니다. 번역 내용과 고정된 제목 ID를 함께 관리합니다.
 - 폴더 이름 `eng`, `jp`는 저장소 안내서의 배치 이름이며 사이트 locale 코드가 아닙니다.
 

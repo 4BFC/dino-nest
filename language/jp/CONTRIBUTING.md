@@ -57,8 +57,7 @@ pnpm start --port 3100 --no-open
 | `docusaurus.config.js` | サイト名、URL、ロゴ、言語、Dino Ovum のオプション |
 | `documents` | 公開するサイトのコンテンツと翻訳 |
 | `public` | ロゴ、アイコン、その他の静的ファイル |
-| `src/css/custom.css` | 共通テーマの後に適用するサイトのスタイル |
-| `src/theme` | 共通コンポーネントのラッパーや置き換え。`Root.jsx` は Agentation を読み込みます |
+| `src` | スタイルと共通コンポーネントのラッパー。[`src` フォルダー](#src-フォルダー)を参照 |
 
 ```text
 docusaurus.config.js
@@ -71,6 +70,23 @@ docusaurus.config.js
 `createDinoConfig` の第 1 引数は Docusaurus のサイト設定です。オブジェクトは共通の既定値と統合され、
 `navbar.items` などの配列は既定値を置き換えます。第 2 引数で `documents`、`customCss`、`search`、`pwa`、`updates` を選択します。
 各オプションは [Dino Ovum 設定ガイド](https://github.com/4BFC/dino-ovum/blob/main/docs/configuration.md)（韓国語）をご覧ください。
+
+### `src` フォルダー
+
+`src` の各場所には役割が 1 つずつ決まっており、出発点となるファイルが入っています。例はサイトに合わせて書き換えて使います。
+
+| 場所 | 役割 | 含まれるファイル |
+| --- | --- | --- |
+| `src/globals.scss` | 共通テーマの後に適用するグローバルスタイル | コメントアウトされた色、フォント、レイアウトの例 |
+| `src/styles` | import した場所にだけ適用される module スタイル（`*.module.scss`） | `custom.module.scss`：`.note` クラス |
+| `src/theme` | 共通コンポーネントのラッパーや置き換え | `Root.jsx`：Agentation を読み込みます |
+
+```text
+src/globals.scss → docusaurus.config.js の customCss → すべてのページ
+src/styles/custom.module.scss → import した MDX や src/theme のファイルだけに適用
+```
+
+`src/theme` は Docusaurus が動作を決めているフォルダーです。このフォルダーのファイルは、同じパスの共通コンポーネントの代わりに使われます。
 
 共通コンポーネントを拡張するには、`src/theme` の同じパスにファイルを作成し、元のコンポーネントをラップします。
 

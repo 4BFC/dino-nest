@@ -93,8 +93,10 @@ slug: /notes/first-note
 | 学習記録やプロジェクトの文書 | `documents/` 内のファイル |
 | サイト名、説明、公開 URL | `docusaurus.config.js` |
 | ロゴ | `public/img/icon-light.svg`, `public/img/icon-dark.svg` |
-| サイトのスタイル | `src/css/custom.css` |
+| サイト全体のスタイル | `src/globals.scss` |
+| 特定のコンテンツだけに使うスタイル | `src/styles` |
 
+`src` の各場所には出発点となるファイルが入っています。詳しくは[サイト構成ガイド](./CONTRIBUTING.md#src-フォルダー)をご覧ください。
 サイトを共有する前に、`docusaurus.config.js` のサンプル URL を変更し、公開する文書を確認してください。
 ホスティングについては[公開ガイド](./CONTRIBUTING.md#公開)をご覧ください。
 共通のデザインと機能は Dino Ovum パッケージが提供します。`@dino-ovum/preset` を更新すると改善を受け取れます。

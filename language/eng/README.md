@@ -94,8 +94,10 @@ Document search is available in the built site; use the navigation while running
 | Notes and project records | Files in `documents/` |
 | Site name, description, and public URL | `docusaurus.config.js` |
 | Logo | `public/img/icon-light.svg`, `public/img/icon-dark.svg` |
-| Site styles | `src/css/custom.css` |
+| Site-wide styles | `src/globals.scss` |
+| Styles for specific content | `src/styles` |
 
+Each location in `src` includes a file to start from; the [site structure guide](./CONTRIBUTING.md#the-src-folder) explains them.
 Before sharing your site, replace the example URL in `docusaurus.config.js` and review the documents you intend to publish.
 The [publishing guide](./CONTRIBUTING.md#publishing) covers hosting.
 Shared design and features come from the Dino Ovum packages; update `@dino-ovum/preset` to receive improvements.

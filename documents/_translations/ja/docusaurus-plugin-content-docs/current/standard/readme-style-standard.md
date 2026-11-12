@@ -5,7 +5,7 @@ description: Docnest の文書の役割、言語バッジ、仕様表、執筆�
 slug: /standard/readme-style-standard
 sidebar_position: 1
 created_at: 2026-11-09
-updated_at: 2026-11-10
+updated_at: 2026-11-12
 ---
 
 Docnest のユーザー向けガイドと開発者向けガイドの執筆基準です。共通の基準は `documents/standard/` にまとめ、サイトにも公開します。
@@ -46,7 +46,7 @@ Standard Readme バッジは書式の出典へのリンクです。プロジェ�
 - パスは各ファイルからの相対パスです。コマンドはリポジトリのルートで実行します。
 - 公開文書の Docusaurus ロケールは `en`、`ko`、`ja` です。英語の原文は `documents/` に置きます。
 - 韓国語と日本語の文書は `documents/_translations/<locale>/docusaurus-plugin-content-docs/current/` に置き、原文とファイル名、slug をそろえます。
-- UI の翻訳は各ロケールの `code.json` に置きます。`_translations` は英語の文書ツリーから除外されます。
+- 韓国語と日本語の UI メッセージは `@dino-ovum/theme` が提供します。変更するメッセージだけを、そのロケールの `code.json` に追加します。`_translations` は英語の文書ツリーから除外されます。
 - 言語セレクターは同じ文書の翻訳版を開きます。翻訳内容と固定の見出し ID を対応させてください。
 - リポジトリのガイド用フォルダ名 `eng`、`jp` はサイトのロケールコードではありません。
 

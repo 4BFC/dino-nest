@@ -5,7 +5,7 @@ description: Document roles, language badges, specifications, and writing standa
 slug: /standard/readme-style-standard
 sidebar_position: 1
 created_at: 2026-11-09
-updated_at: 2026-11-10
+updated_at: 2026-11-12
 ---
 
 This guide defines how Docnest's user and contributor documentation is written. Shared writing standards live in `documents/standard/` and are published on the site.
@@ -46,7 +46,7 @@ The Standard Readme badge links to the style's source; this document records the
 - Resolve paths relative to each file. Run example commands from the repository root.
 - Published documents use Docusaurus locales `en`, `ko`, and `ja`. English source files live in `documents/`.
 - Store Korean and Japanese documents in `documents/_translations/<locale>/docusaurus-plugin-content-docs/current/`, preserving source file names and slugs.
-- UI messages live in each locale's `code.json`. The `_translations` directory is excluded from the English document tree.
+- Korean and Japanese UI messages come from `@dino-ovum/theme`; add a key to the locale's `code.json` only to change one. The `_translations` directory is excluded from the English document tree.
 - The navigation language selector opens the same document in another language. Keep translations and stable heading IDs aligned.
 - The repository guide directory names `eng` and `jp` are not site locale codes.
 

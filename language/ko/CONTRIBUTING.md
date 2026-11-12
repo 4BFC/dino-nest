@@ -57,8 +57,7 @@ pnpm start --port 3100 --no-open
 | `docusaurus.config.js` | 사이트 이름, URL, 로고, 언어와 Dino Ovum 옵션 |
 | `documents` | 공개할 사이트 콘텐츠와 번역 |
 | `public` | 로고, 아이콘과 그 밖의 정적 파일 |
-| `src/css/custom.css` | 공통 테마 뒤에 적용하는 사이트 스타일 |
-| `src/theme` | 공통 컴포넌트의 래퍼나 교체 파일, `Root.jsx`는 Agentation을 로드 |
+| `src` | 사용자 스타일과 공통 컴포넌트 래퍼. [`src` 폴더](#src-폴더) 참고 |
 
 ```text
 docusaurus.config.js
@@ -71,6 +70,23 @@ docusaurus.config.js
 `createDinoConfig`의 첫 인자는 Docusaurus 사이트 설정입니다. 객체는 공통 기본값과 합쳐지고,
 `navbar.items` 같은 배열은 기본값을 교체합니다. 두 번째 인자로 `documents`, `customCss`, `search`, `pwa`, `updates`를 선택합니다.
 옵션별 설명은 [Dino Ovum 설정 안내](https://github.com/4BFC/dino-ovum/blob/main/docs/configuration.md)를 참고하세요.
+
+### `src` 폴더
+
+`src`의 각 위치는 역할이 하나씩 정해져 있고, 시작점이 되는 파일이 들어 있습니다. 예시는 사이트에 맞게 고쳐 씁니다.
+
+| 위치 | 역할 | 들어 있는 파일 |
+| --- | --- | --- |
+| `src/globals.scss` | 공통 테마 뒤에 적용하는 전역 스타일 | 주석 처리된 색상, 글꼴, 레이아웃 예시 |
+| `src/styles` | import한 곳에만 적용되는 module 스타일(`*.module.scss`) | `custom.module.scss`: `.note` 클래스 |
+| `src/theme` | 공통 컴포넌트의 래퍼나 교체 파일 | `Root.jsx`: Agentation을 로드 |
+
+```text
+src/globals.scss → docusaurus.config.js의 customCss → 모든 페이지
+src/styles/custom.module.scss → import한 MDX나 src/theme 파일에만 적용
+```
+
+`src/theme`는 Docusaurus가 동작을 정해 둔 폴더입니다. 이 폴더의 파일은 같은 경로의 공통 컴포넌트를 대신합니다.
 
 공통 컴포넌트를 확장하려면 `src/theme`의 같은 경로에 파일을 만들고 원본을 감쌉니다.
 
