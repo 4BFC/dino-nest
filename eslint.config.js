@@ -5,7 +5,8 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 
 const sourceFiles = ['*.js', 'src/**/*.{js,jsx}'];
-const browserFiles = ['src/pages/**/*.{js,jsx}', 'src/theme/**/*.{js,jsx}'];
+// Every script in src runs in the browser: components, pages, and theme wrappers.
+const browserFiles = ['src/**/*.{js,jsx}'];
 
 export default defineConfig([
   globalIgnores([
