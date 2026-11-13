@@ -18,6 +18,9 @@ concurrency:
 
 jobs:
   draft:
+    # Repositories created from this template copy this file. Their pushes should not
+    # open release drafts, so the job runs only in the template's own repository.
+    if: github.repository == '4BFC/dino-nest'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
