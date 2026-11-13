@@ -1,14 +1,14 @@
 ---
 title: README style standard
 sidebar_label: README writing guide
-description: Document roles, language badges, specifications, and writing standards for Docnest.
+description: Document roles, language badges, specifications, and writing standards for dino-nest.
 slug: /standard/readme-style-standard
 sidebar_position: 1
 created_at: 2026-11-09
 updated_at: 2026-11-12
 ---
 
-This guide defines how Docnest's user and contributor documentation is written. Shared writing standards live in `documents/standard/` and are published on the site.
+This guide defines how dino-nest's user and contributor documentation is written. Shared writing standards live in `documents/standard/` and are published on the site.
 It follows the basic structure of the [Standard Readme specification](https://github.com/RichardLitt/standard-readme/blob/main/spec.md)
 and the language badges and specification tables in the [Shelter README](https://github.com/4BFC/shelter) and [Shelter writing guide](https://github.com/4BFC/shelter/blob/main/CONTRIBUTING.md#writing-documentation).
 
@@ -16,7 +16,7 @@ and the language badges and specification tables in the [Shelter README](https:/
 
 | Document | Audience and purpose | Contents |
 | --- | --- | --- |
-| README | People using Docnest | Introduction, concise specifications, installation, writing documents, and everyday use |
+| README | People using dino-nest | Introduction, concise specifications, installation, writing documents, and everyday use |
 | CONTRIBUTING | People changing or maintaining the code | Development setup, site structure, checks, commits, and publishing |
 | `documents/standard/` | Documentation maintainers | Shared writing standards |
 

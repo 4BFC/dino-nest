@@ -1,4 +1,4 @@
-# Docnest の開発と貢献
+# dino-nest の開発と貢献
 
 <div align="center">
 <table align="center">
@@ -223,7 +223,7 @@ Docusaurus のビルド互換プラグインは preset に含まれているた�
 
 ## 貢献の手順
 
-質問、再現可能な不具合、改善提案には [GitHub Issues](https://github.com/4BFC/docnest/issues) を利用してください。
+質問、再現可能な不具合、改善提案には [GitHub Issues](https://github.com/4BFC/dino-nest/issues) を利用してください。
 合意した問題の範囲に集中し、無関係な変更は保持します。Pull Request には変更理由、チェック結果、必要な画面を添付します。
 コミット前に差分を確認してください。AI と作業する場合、ステージングとコミットにはユーザーの明示的な指示が必要です。
 コミットメッセージに `Co-Authored-By` を追加しません。push と公開も別の操作として扱います。

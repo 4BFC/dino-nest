@@ -1,4 +1,4 @@
-# Docnest 개발과 기여
+# dino-nest 개발과 기여
 
 <div align="center">
 <table align="center">
@@ -223,7 +223,7 @@ Docusaurus 빌드 호환 플러그인은 preset에 포함되어 있으므로 이
 
 ## 기여 절차
 
-질문, 재현 가능한 버그와 개선 제안은 [GitHub Issues](https://github.com/4BFC/docnest/issues)를 이용합니다.
+질문, 재현 가능한 버그와 개선 제안은 [GitHub Issues](https://github.com/4BFC/dino-nest/issues)를 이용합니다.
 합의한 문제 범위에 집중하고 관련 없는 변경을 보존합니다. Pull Request에는 변경 이유, 검사 결과와 필요한 화면을 첨부합니다.
 커밋 전 diff를 검토합니다. AI와 작업할 때는 사용자의 명시적 지시가 있어야 스테이징과 커밋을 진행하며,
 커밋 메시지에 `Co-Authored-By`를 넣지 않습니다. push와 게시도 별도 작업으로 구분합니다.

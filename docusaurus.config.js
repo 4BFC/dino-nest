@@ -4,7 +4,7 @@ import {createDinoConfig} from '@dino-ovum/preset/config';
 const {version} = createRequire(import.meta.url)('./package.json');
 
 // Shared starter branding. Change this once for the site and navbar titles.
-const siteTitle = 'Docnest';
+const siteTitle = 'dino-nest';
 
 // First argument: Docusaurus site settings. Second argument: Dino Ovum options.
 // Shared layouts, navigation, search, and styles come from @dino-ovum/preset.

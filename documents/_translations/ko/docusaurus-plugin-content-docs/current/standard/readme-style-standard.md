@@ -1,14 +1,14 @@
 ---
 title: README 작성 기준
 sidebar_label: README 작성 기준
-description: Docnest의 README와 CONTRIBUTING 역할, 언어 배지, 스펙 표와 문서 작성 기준입니다.
+description: dino-nest의 README와 CONTRIBUTING 역할, 언어 배지, 스펙 표와 문서 작성 기준입니다.
 slug: /standard/readme-style-standard
 sidebar_position: 1
 created_at: 2026-11-09
 updated_at: 2026-11-12
 ---
 
-Docnest의 사용자 안내와 개발 안내를 작성하는 기준입니다. 공통 작성 기준은 `documents/standard/`에 모으고 사이트에서 함께 공개합니다.
+dino-nest의 사용자 안내와 개발 안내를 작성하는 기준입니다. 공통 작성 기준은 `documents/standard/`에 모으고 사이트에서 함께 공개합니다.
 [Standard Readme 명세](https://github.com/RichardLitt/standard-readme/blob/main/spec.md)의 기본 구조와
 [Shelter README](https://github.com/4BFC/shelter), [Shelter 문서 작성 기준](https://github.com/4BFC/shelter/blob/main/CONTRIBUTING.md#writing-documentation)의 언어 배지와 스펙 표 형식을 참고합니다.
 
@@ -16,7 +16,7 @@ Docnest의 사용자 안내와 개발 안내를 작성하는 기준입니다. �
 
 | 문서 | 독자와 목적 | 포함하는 내용 |
 | --- | --- | --- |
-| README | Docnest를 사용하는 사람 | 제품 소개, 간단한 스펙, 설치, 문서 작성과 기본 사용법 |
+| README | dino-nest를 사용하는 사람 | 제품 소개, 간단한 스펙, 설치, 문서 작성과 기본 사용법 |
 | CONTRIBUTING | 코드를 수정하고 관리하는 사람 | 개발 환경, 사이트 구조, 검사, 커밋, 배포 절차 |
 | `documents/standard/` | 문서를 유지하는 사람 | 저장소의 공통 작성 기준 |
 

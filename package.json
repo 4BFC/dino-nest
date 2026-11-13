@@ -1,5 +1,5 @@
 {
-  "name": "docnest",
+  "name": "dino-nest",
   "description": "A Docusaurus starter template for personal knowledge and project documentation.",
   "version": "0.1.0",
   "private": true,
@@ -71,6 +71,6 @@
   "author": "4BFC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/4BFC/docnest.git"
+    "url": "https://github.com/4BFC/dino-nest.git"
   }
 }

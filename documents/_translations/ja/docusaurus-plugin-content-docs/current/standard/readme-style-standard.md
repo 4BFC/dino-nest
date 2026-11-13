@@ -1,14 +1,14 @@
 ---
 title: README 執筆基準
 sidebar_label: README 執筆基準
-description: Docnest の文書の役割、言語バッジ、仕様表、執筆基準です。
+description: dino-nest の文書の役割、言語バッジ、仕様表、執筆基準です。
 slug: /standard/readme-style-standard
 sidebar_position: 1
 created_at: 2026-11-09
 updated_at: 2026-11-12
 ---
 
-Docnest のユーザー向けガイドと開発者向けガイドの執筆基準です。共通の基準は `documents/standard/` にまとめ、サイトにも公開します。
+dino-nest のユーザー向けガイドと開発者向けガイドの執筆基準です。共通の基準は `documents/standard/` にまとめ、サイトにも公開します。
 [Standard Readme 仕様](https://github.com/RichardLitt/standard-readme/blob/main/spec.md)の基本構成と、
 [Shelter README](https://github.com/4BFC/shelter)、[Shelter の執筆基準](https://github.com/4BFC/shelter/blob/main/CONTRIBUTING.md#writing-documentation)の言語バッジと仕様表を参考にしています。
 
@@ -16,7 +16,7 @@ Docnest のユーザー向けガイドと開発者向けガイドの執筆基準
 
 | 文書 | 読者と目的 | 含める内容 |
 | --- | --- | --- |
-| README | Docnest を利用する人 | 紹介、簡潔な仕様、インストール、文書の作成、基本的な使い方 |
+| README | dino-nest を利用する人 | 紹介、簡潔な仕様、インストール、文書の作成、基本的な使い方 |
 | CONTRIBUTING | コードを変更、保守する人 | 開発環境、サイトの構成、検査、コミット、公開手順 |
 | `documents/standard/` | 文書を保守する人 | 共通の執筆基準 |
 

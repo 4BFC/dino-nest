@@ -1,4 +1,4 @@
-# Contributing to Docnest
+# Contributing to dino-nest
 
 <div align="center">
 <table align="center">
@@ -237,7 +237,7 @@ Do not patch installed packages. Report shared problems in [Dino Ovum Issues](ht
 
 ## Contribution workflow
 
-Use [GitHub Issues](https://github.com/4BFC/docnest/issues) for questions, reproducible bugs, and proposals.
+Use [GitHub Issues](https://github.com/4BFC/dino-nest/issues) for questions, reproducible bugs, and proposals.
 Keep each change focused on the agreed problem, preserve unrelated work, and include the relevant checks and UI screenshots in a pull request.
 Review the diff before committing. When working with an AI agent, staging and commits require an explicit user instruction;
 commit messages must not include `Co-Authored-By`. Publishing and pushing are separate actions.
