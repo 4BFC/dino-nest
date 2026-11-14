@@ -13,5 +13,10 @@ export default {
       extends: ['stylelint-config-standard-scss'],
       rules: {'max-nesting-depth': 3},
     },
+    {
+      // Site color tokens are defined here; other styles use the CSS variables.
+      files: ['src/globals.scss'],
+      rules: {'color-no-hex': null, 'function-disallowed-list': null},
+    },
   ],
 };
